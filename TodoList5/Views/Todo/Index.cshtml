@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h2>Index</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -20,6 +20,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th></th>
         </tr>
@@ -37,9 +40,23 @@
                 @Html.DisplayFor(modelItem => item.Priority)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+
+     
+            <td>
+                 @*@Html.ActionLink("Edit", "Edit", new { id=item.Id  })*@ 
+                <td class="text-center">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="fas fa-pen"></i> Edit Task</a>
+                            </td>
+                              <td class="text-center">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"><i class="fas fa-pen"></i>Task Details</a>
+                            </td>
+                              <td class="text-center">
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary"><i class="fas fa-pen"></i> Task Done</a>
+                            </td>
+              @*  @Html.ActionLink("Details", "Detail", new {  id=item.Id }) |*@
+            @*    @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })*@
             </td>
         </tr>
 }

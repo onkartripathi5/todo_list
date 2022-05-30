@@ -31,7 +31,8 @@ namespace TodoList5.Models
                     todo.Id = Convert.ToInt32(rdr["Id"]);
                     todo.TaskName = rdr["TaskName"].ToString();
                     todo.Priority = rdr["Priority"].ToString();
-            
+                    todo.Date = rdr["Date"].ToString();
+
 
                     lstTodo.Add(todo);
                 }
@@ -50,7 +51,8 @@ namespace TodoList5.Models
 
                 cmd.Parameters.AddWithValue("@TaskName", todo.TaskName);
                 cmd.Parameters.AddWithValue("@Priority", todo.Priority);
-           
+                cmd.Parameters.AddWithValue("@Date", todo.Date);
+
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -68,7 +70,8 @@ namespace TodoList5.Models
                 cmd.Parameters.AddWithValue("@Id", todo.Id);
                 cmd.Parameters.AddWithValue("@TaskName", todo.TaskName);
                 cmd.Parameters.AddWithValue("@Priority",todo.Priority);
-         
+                cmd.Parameters.AddWithValue("@Date", todo.Date);
+
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -90,9 +93,10 @@ namespace TodoList5.Models
                 while (rdr.Read())
                 {
                     todo.Id = Convert.ToInt32(rdr["Id"]);
-                    todo.TaskName = rdr["FirstName"].ToString();
-                    todo.Priority = rdr["LastName"].ToString();
-                   
+                    todo.TaskName = rdr["TaskName"].ToString();
+                    todo.Priority = rdr["Priority"].ToString();
+                    todo.Date = rdr["Date"].ToString();
+
                 }
             }
             return todo;

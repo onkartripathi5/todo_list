@@ -10,5 +10,7 @@ namespace TodoList5.Models
 
         public string  Priority{ set; get; }
 
+        public string Date { set; get; }
+
     }
 }
